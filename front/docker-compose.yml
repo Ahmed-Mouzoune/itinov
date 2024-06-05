@@ -10,8 +10,8 @@ services:
     ports:
       - 3009:3009
     networks:
-      - itinov
+      - nginxproxymanagernetwork
 
 networks:
-  itinov:
+  nginxproxymanagernetwork:
     external: true

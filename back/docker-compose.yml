@@ -19,7 +19,7 @@ services:
     ports:
       - '13379:1337'
     networks:
-      - itinov
+      - nginxproxymanagernetwork
     depends_on:
       - itinovstrapiDB
 
@@ -38,10 +38,10 @@ services:
     ports:
       - '54329:5432'
     networks:
-      - itinov
+      - nginxproxymanagernetwork
 
 networks:
-  itinov:
+  nginxproxymanagernetwork:
     external: true
 
 volumes:
