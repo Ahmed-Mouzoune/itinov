@@ -19,13 +19,17 @@ export const useAccount: UseAccountHook = () => {
   return context;
 };
 
-export default function AccountProvider({ children }: { children: ReactNode }) {
+export default function AccountProvider({
+  children,
+  accounts,
+}: {
+  children: ReactNode;
+  accounts: TStrapiAccountApiResponse[] | undefined;
+  // accounts: TStrapiAccountsApiResponse;
+}) {
   const [accountSelected, setAccountSelected] = useState<IAccount | undefined>(
     undefined
   );
-  const [accounts, setAccounts] = useState<
-    TStrapiAccountApiResponse[] | undefined
-  >(undefined);
   const [sheetAccountDepositSheetOpen, setSheetAccountDepositSheetOpen] =
     useState(false);
   const [sheetAccountWithdrawalSheetOpen, setSheetAccountWithdrawalSheetOpen] =
@@ -33,29 +37,13 @@ export default function AccountProvider({ children }: { children: ReactNode }) {
   const [sheetAccountTransferSheetOpen, setSheetAccountTransferSheetOpen] =
     useState(false);
 
-  const fetchAccounts = async () => {
-    const accounts = await findUserAccountService();
-    setAccounts(
-      accounts?.data?.map((account) => ({
-        id: account.id,
-        attributes: { ...account?.attributes, id: account?.id },
-      }))
-    );
-  };
-
   useEffect(() => {
-    fetchAccounts();
-    return () => {
-      setAccounts(undefined);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (accounts)
+    if (accounts) {
       setAccountSelected({
         ...accounts[0]?.attributes,
         id: accounts[0]?.id,
       });
+    }
 
     return () => {
       setAccountSelected(undefined);
@@ -66,7 +54,6 @@ export default function AccountProvider({ children }: { children: ReactNode }) {
     <AccountContext.Provider
       value={{
         accounts,
-        setAccounts,
         accountSelected,
         setAccountSelected,
         sheetAccountDepositSheetOpen,

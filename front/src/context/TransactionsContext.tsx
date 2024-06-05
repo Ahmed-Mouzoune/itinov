@@ -23,37 +23,19 @@ export const useTransaction: UseTransactionHook = () => {
 
 export default function TransactionProvider({
   children,
+  transactions,
 }: {
   children: ReactNode;
+  // transactionsTest: TStrapiTransactionApiResponse | undefined;
+  transactions: TStrapiTransactionApiResponse[] | undefined;
 }) {
-  const [transactions, setTransactions] = useState<
-    TStrapiTransactionApiResponse[] | undefined
-  >(undefined);
   const [sheetListTransactionOpen, setSheetListTransactionOpen] =
     useState(false);
-
-  const fetchTransactions = async () => {
-    const transactions = await findTransactionsUserService();
-    setTransactions(
-      transactions?.data?.map((transaction) => ({
-        id: transaction.id,
-        attributes: { ...transaction?.attributes, id: transaction?.id },
-      }))
-    );
-  };
-
-  useEffect(() => {
-    fetchTransactions();
-    return () => {
-      setTransactions(undefined);
-    };
-  }, []);
 
   return (
     <TransactionContext.Provider
       value={{
         transactions,
-        setTransactions,
         sheetListTransactionOpen,
         setSheetListTransactionOpen,
       }}

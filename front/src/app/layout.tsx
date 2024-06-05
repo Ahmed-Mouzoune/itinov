@@ -29,10 +29,8 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Providers>
-          {children}
-          <Toaster />
-        </Providers>
+        {children}
+        <Toaster />
       </body>
     </html>
   );

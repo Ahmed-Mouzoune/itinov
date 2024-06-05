@@ -23,7 +23,6 @@ interface ITransaction {
 
 interface TransactionContextType {
     transactions: TStrapiTransactionApiResponse[] | undefined
-    setTransactions: React.Dispatch<React.SetStateAction<TStrapiTransactionApiResponse[] | undefined>>
     sheetListTransactionOpen: boolean
     setSheetListTransactionOpen: React.Dispatch<React.SetStateAction<boolean>>
 }

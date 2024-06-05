@@ -20,7 +20,6 @@ interface IAccount {
 
 interface AccountContextType {
     accounts: TStrapiAccountApiResponse[] | undefined
-    setAccounts: React.Dispatch<React.SetStateAction<TStrapiAccountApiResponse[] | undefined>>
     accountSelected: IAccount | undefined
     setAccountSelected: React.Dispatch<React.SetStateAction<IAccount | undefined>>
     sheetAccountDepositSheetOpen: boolean;

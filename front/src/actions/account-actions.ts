@@ -87,6 +87,7 @@ export async function depositAccountAction(prevState: any, formData: FormData) {
         message: "Failed to Login.",
       };
     }
+    await revalidateFindUserAccounts();
     return responseData;
 }
 export async function withdrawalAccountAction(prevState: any, formData: FormData) {
@@ -119,8 +120,7 @@ export async function withdrawalAccountAction(prevState: any, formData: FormData
         message: "Failed to Login.",
       };
     }
-    // revalidateTag('collectionAccounts');
-    revalidatePath("/");
+    await revalidateFindUserAccounts();
     return responseData;
 }
 export async function transferBetweenUserAccountAction(prevState: any, formData: FormData) {
@@ -154,5 +154,6 @@ export async function transferBetweenUserAccountAction(prevState: any, formData:
         message: "Failed to Login.",
       };
     }
+    await revalidateFindUserAccounts();
     return responseData;
 }
