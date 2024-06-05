@@ -17,7 +17,7 @@ services:
       - ./.env:/opt/app/.env
       # - itinov_strapi_uploads:/opt/app/public/uploads
     ports:
-      - '13379:13379'
+      - '13379:1337'
     networks:
       - itinov
     depends_on:
