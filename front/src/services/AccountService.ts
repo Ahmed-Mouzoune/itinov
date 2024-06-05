@@ -14,7 +14,7 @@ export async function findUserAccountService(): Promise<TStrapiAccountsApiRespon
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${getAuthToken()}`,
             },
-            cache: 'no-cache',
+            // cache: 'no-cache',
             next: { tags: ['collectionAccounts'] }
         });
         const accounts: TStrapiAccountsApiResponse | TStrapiErrorsApiResponse = await response.json();
@@ -59,6 +59,8 @@ export async function withdrawalAccountService({amountWithdrawal, accountId}: {a
             })
         });
         const account: TStrapiAccountsApiResponse | TStrapiErrorsApiResponse = await response.json();
+        // await revalidateFindUserAccounts();
+        // revalidateTag('collectionAccounts')
         return account;
     } catch (error) {
         console.error('Erreur:', error);

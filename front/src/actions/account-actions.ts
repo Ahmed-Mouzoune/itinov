@@ -1,5 +1,6 @@
 "use server";
 import { depositAccountService, revalidateFindUserAccounts, transferBetweenUserAccountService, withdrawalAccountService } from "@/services/AccountService";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 
 const schemaDeposit = z.object({
@@ -118,6 +119,8 @@ export async function withdrawalAccountAction(prevState: any, formData: FormData
         message: "Failed to Login.",
       };
     }
+    // revalidateTag('collectionAccounts');
+    revalidatePath("/");
     return responseData;
 }
 export async function transferBetweenUserAccountAction(prevState: any, formData: FormData) {
