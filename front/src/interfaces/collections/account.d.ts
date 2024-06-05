@@ -6,7 +6,7 @@ type TStrapiAccountsApiResponse = {
     data: TStrapiAccountApiResponse[]
 }
 
-export interface IAccount {
+interface IAccount {
     id: number
     name: string
     balance: number
@@ -18,7 +18,7 @@ export interface IAccount {
     publishedAt: string
 }
 
-export interface AccountContextType {
+interface AccountContextType {
     accounts: TStrapiAccountApiResponse[] | undefined
     setAccounts: React.Dispatch<React.SetStateAction<TStrapiAccountApiResponse[] | undefined>>
     accountSelected: IAccount | undefined

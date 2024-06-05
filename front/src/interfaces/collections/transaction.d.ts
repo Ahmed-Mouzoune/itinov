@@ -10,8 +10,12 @@ interface ITransaction {
     amount: number
     type: 'transfer' | 'deposit' | 'payment' | 'withdrawal'
     users: any[]
-    account_debtor: TStrapiAccountApiResponse
-    account_creditor: TStrapiAccountApiResponse
+    account_debtor: {
+        data: TStrapiAccountApiResponse
+    }
+    account_creditor: {
+        data: TStrapiAccountApiResponse
+    }
     createdAt: string
     updatedAt: string
     publishedAt: string

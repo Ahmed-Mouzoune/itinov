@@ -1,5 +1,4 @@
 "use server"
-import { TStrapiAccountsApiResponse } from "@/interfaces/collections/account";
 import { getAuthToken, getStrapiUrl } from "@/lib/api";
 import { revalidateTag } from "next/cache";
 

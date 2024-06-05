@@ -1,5 +1,4 @@
-// "use server";
-import { IUser, TStrapiUserApiResponse } from "@/interfaces/collections/user";
+"use server";
 import { getAuthToken, getStrapiUrl } from "@/lib/api";
 
 export async function loginUserService({identifier, password}: {identifier: string, password: string}): Promise<TStrapiUserApiResponse | TStrapiErrorsApiResponse> {

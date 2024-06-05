@@ -1,9 +1,5 @@
 "use client";
 import { useAccount } from "@/context/AccountContext";
-import {
-  IAccount,
-  TStrapiAccountApiResponse,
-} from "@/interfaces/collections/account";
 import React from "react";
 import {
   Accordion,

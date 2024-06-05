@@ -11,16 +11,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import {
-  IAccount,
-  TStrapiAccountApiResponse,
-} from "@/interfaces/collections/account";
 import { useAccount } from "@/context/AccountContext";
 import AccountsList from "./AccountsList";
 

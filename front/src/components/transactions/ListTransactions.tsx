@@ -2,23 +2,12 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  MdArrowCircleDown,
-  MdArrowDownward,
-  MdOutlineArrowCircleDown,
-} from "react-icons/md";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { useAccount } from "@/context/AccountContext";
-import { Input } from "@/components/ui/input";
-import { TStrapiTransactionApiResponse } from "@/interfaces/collections/transaction";
 import RowTransaction from "./RowTransactions";
 
 interface IAccountDepositSheet {

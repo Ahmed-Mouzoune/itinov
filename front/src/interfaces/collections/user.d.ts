@@ -14,7 +14,7 @@ interface IUser  {
     updatedAt: string;
 }
 
-export default interface AuthContextType {
+interface AuthContextType {
     user: User | undefined;
     token: string | undefined;
     saveUserData: (userData: User, authToken: string) => void;

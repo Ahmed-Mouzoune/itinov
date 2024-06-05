@@ -6,11 +6,6 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import {
-  AccountContextType,
-  IAccount,
-  TStrapiAccountApiResponse,
-} from "@/interfaces/collections/account";
 import { findUserAccountService } from "@/services/AccountService";
 
 const AccountContext = createContext<AccountContextType | undefined>(undefined);

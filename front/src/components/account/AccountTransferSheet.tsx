@@ -2,31 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  MdArrowCircleDown,
-  MdArrowDownward,
-  MdOutlineArrowCircleDown,
-} from "react-icons/md";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { useAccount } from "@/context/AccountContext";
 import { Input } from "@/components/ui/input";
-import {
-  IAccount,
-  TStrapiAccountApiResponse,
-} from "@/interfaces/collections/account";
 import AccountsList from "./AccountsList";
-import {
-  transferBetweenUserAccountService,
-  revalidateFindUserAccounts,
-} from "@/services/AccountService";
+import { revalidateFindUserAccounts } from "@/services/AccountService";
 import { toast } from "../ui/use-toast";
 import { BiTransfer } from "react-icons/bi";
 import { useFormState } from "react-dom";

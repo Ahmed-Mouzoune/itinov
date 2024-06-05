@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { TStrapiAccountApiResponse } from "@/interfaces/collections/account";
 import { useAccount } from "@/context/AccountContext";
 import { Skeleton } from "../ui/skeleton";
 import AccountsSelectSheet from "./AccountsSelectSheet";
