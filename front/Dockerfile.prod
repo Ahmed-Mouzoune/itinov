@@ -45,9 +45,9 @@ RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/ .
 
-EXPOSE 3009
+EXPOSE 3000
 
-ENV PORT 3009
+ENV PORT 3000
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 

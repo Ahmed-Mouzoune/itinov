@@ -57,7 +57,6 @@ const schemaTransferBetweenUserAccounts = z.object({
 });
 
 export async function depositAccountAction(prevState: any, formData: FormData) {
-  console.log('formData.get("accountId")', formData.get("accountId"))
     const validatedFields = schemaDeposit.safeParse({
         amountDeposit: Number(formData.get("amountDeposit")),
         accountId: Number(formData.get("accountId")),
@@ -70,7 +69,6 @@ export async function depositAccountAction(prevState: any, formData: FormData) {
       };
     }
     const responseData = await depositAccountService(validatedFields.data);
-    console.log('responseData', responseData)
     if (!responseData) {
       return {
         // ...prevState,
