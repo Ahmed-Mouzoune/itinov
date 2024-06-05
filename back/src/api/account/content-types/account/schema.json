@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accounts",
+  "info": {
+    "singularName": "account",
+    "pluralName": "accounts",
+    "displayName": "account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "balance": {
+      "type": "decimal",
+      "default": 0
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "accounts"
+    },
+    "transactions_debtors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction.transaction",
+      "mappedBy": "account_debtor"
+    },
+    "transactions_creditor": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction.transaction",
+      "mappedBy": "account_creditor"
+    }
+  }
+}

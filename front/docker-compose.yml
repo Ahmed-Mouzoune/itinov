@@ -1,0 +1,17 @@
+services:
+  interface:
+    container_name: nextjs
+    image: itinovnextjs:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    env_file:
+      - .env.local
+    ports:
+      - 3009:3009
+    networks:
+      - itinov
+
+networks:
+  itinov:
+    external: true

@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "singularName": "transaction",
+    "pluralName": "transactions",
+    "displayName": "transaction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "transfer",
+        "deposit",
+        "payment",
+        "withdrawal"
+      ],
+      "required": true
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "transactions"
+    },
+    "account_debtor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "transactions_debtors"
+    },
+    "account_creditor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "transactions_creditor"
+    }
+  }
+}
