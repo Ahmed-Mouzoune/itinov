@@ -96,18 +96,6 @@ export default function AccountWithdrawalSheet() {
           <SheetHeader>
             <SheetTitle className="mb-4">Retirer de l&apos;argent</SheetTitle>
           </SheetHeader>
-          <div className="relative rounded-xl bg-white w-full p-4 flex justify-between items-center font-semibold">
-            <div className="absolute inset-x-1/2 -bottom-6">
-              <div className="bg-white flex w-min h-min -translate-x-1/2 rounded-full border p-2">
-                <MdArrowDownward className="h-4 w-4" />
-              </div>
-            </div>
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-            <p className="flex ml-4 mr-auto">Apple Pay</p>
-          </div>
           <div className="rounded-xl bg-white w-full p-4 flex flex-col">
             <div className="flex justify-between items-center gap-4 mb-2">
               <Avatar>
@@ -137,9 +125,7 @@ export default function AccountWithdrawalSheet() {
               <p className="">Le montant minimal est de 1 €</p>
             </div>
           </div>
-          <Button type="submit" className="mt-auto">
-            Confirmer
-          </Button>
+          <Button type="submit">Confirmer</Button>
         </form>
       </SheetContent>
     </Sheet>

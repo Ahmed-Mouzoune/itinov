@@ -61,7 +61,10 @@ export default function SigninForm() {
   }, [formState]);
 
   return (
-    <form className="w-full" action={formAction}>
+    <form
+      className="w-5/6 sm:w-full sm:max-w-screen-md sm:mx-auto"
+      action={formAction}
+    >
       <Card>
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-3xl font-bold">Sign In</CardTitle>

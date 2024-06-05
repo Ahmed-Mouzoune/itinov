@@ -1,11 +1,17 @@
 "use client";
 import React from "react";
-import { MdOutlineAdd, MdOutlineHome, MdOutlineMenu } from "react-icons/md";
+import {
+  MdFormatListBulleted,
+  MdOutlineAdd,
+  MdOutlineHome,
+  MdOutlineMenu,
+} from "react-icons/md";
 import { IoCashOutline } from "react-icons/io5";
 import { BiTransfer } from "react-icons/bi";
 import { useAccount } from "@/context/AccountContext";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import { useTransaction } from "@/context/TransactionsContext";
 
 interface INavItem {
   icon: any;
@@ -20,6 +26,7 @@ export default function NavbarBottom() {
     setSheetAccountTransferSheetOpen,
     setSheetAccountWithdrawalSheetOpen,
   } = useAccount();
+  const { setSheetListTransactionOpen } = useTransaction();
   const NavItems = [
     // {
     //   icon: <MdOutlineHome />,
@@ -45,6 +52,12 @@ export default function NavbarBottom() {
       setSheet: setSheetAccountWithdrawalSheetOpen,
       disabled: false,
     },
+    {
+      icon: <MdFormatListBulleted />,
+      label: "Transactions",
+      setSheet: setSheetListTransactionOpen,
+      disabled: false,
+    },
     // {
     //   icon: <MdOutlineMenu />,
     //   label: "Menu",
@@ -54,7 +67,7 @@ export default function NavbarBottom() {
   ];
 
   return (
-    <nav className="w-screen p-4 px-8 bg-white border-t fixed bottom-0 left-0">
+    <nav className="w-screen p-3 px-6 bg-white border-t fixed bottom-0 left-0">
       <div className="flex justify-between items-center max-w-screen-md mx-auto">
         {NavItems.map((navItem, i) => (
           <NavItem

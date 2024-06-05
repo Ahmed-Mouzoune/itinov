@@ -135,9 +135,7 @@ export default function AccountDepositSheet() {
               <p className="">Le montant minimal est de 10 €</p>
             </div>
           </div>
-          <Button type="submit" className="mt-auto">
-            Confirmer
-          </Button>
+          <Button type="submit">Confirmer</Button>
         </form>
       </SheetContent>
     </Sheet>
