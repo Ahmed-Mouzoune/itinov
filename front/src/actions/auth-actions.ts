@@ -58,7 +58,7 @@ export async function loginUserAction(prevState: any, formData: FormData) {
   redirect('/');
 }
 
-export async function logoutAction() {
+export async function logoutUserAction() {
   cookies().set("jwt", "", { ...configCookie, maxAge: 0 });
-  redirect("/");
+  redirect("/signin");
 }

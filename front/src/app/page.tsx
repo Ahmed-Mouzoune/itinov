@@ -3,8 +3,6 @@ import NavbarBottom from "@/components/NavbarBottom";
 import AccountResume from "@/components/account/AccountResume";
 import ChartTransaction from "@/components/transactions/ChartTransaction";
 import RecentTransactions from "@/components/transactions/RecentTransactions";
-import AccountProvider from "@/context/AccountContext";
-import TransactionProvider from "@/context/TransactionsContext";
 import { findUserAccountService } from "@/services/AccountService";
 import { findTransactionsUserService } from "@/services/TransactionService";
 import Providers from "./providers";
