@@ -28,10 +28,7 @@ export default function Header() {
           <h1 className="font-semibold text-lg">Checking Account</h1>
           <span className="font-light text-sm">ITINOV BANK APP</span>
         </div>
-        {/* <div className="rounded-full h-min w-min p-2 bg-gray-200"> */}
-        {/* <MdOutlineAccountCircle className="cursor-default" /> */}
         <AccountButton />
-        {/* </div> */}
       </div>
     </header>
   );
@@ -49,13 +46,9 @@ const AccountButton = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        {/* <Button>
-          <MdOutlineAccountCircle className="cursor-default" />
-        </Button> */}
         <div className="rounded-full h-min w-min p-2 bg-gray-200 cursor-pointer">
           <MdOutlineAccountCircle />
         </div>
-        {/* <Button variant="outline">Open</Button> */}
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>
