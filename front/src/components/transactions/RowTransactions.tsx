@@ -31,7 +31,7 @@ export default function RowTransaction({
       <div
         className={cn({
           "text-green-600": transferCreditor,
-          "text-red-600": transferCreditor,
+          "text-red-600": !transferCreditor,
         })}
       >
         {transferCreditor ? "+" : "-"}
