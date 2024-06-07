@@ -26,3 +26,9 @@ interface TransactionContextType {
     sheetListTransactionOpen: boolean
     setSheetListTransactionOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
+
+interface ITransactionDataChart {
+    account_debt: number;
+    ammount_credit: number;
+    days: string;
+}

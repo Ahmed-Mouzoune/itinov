@@ -14,11 +14,11 @@ export default async function Home() {
   return (
     <Providers accounts={accounts} transactions={transactions}>
       <Header />
-      <main className="flex flex-col gap-2">
+      <main className="flex flex-col gap-2 pb-24">
         <AccountResume />
         <RecentTransactions />
         {/* <RecentTransactions /> */}
-        {/* <ChartTransaction /> */}
+        <ChartTransaction />
       </main>
       <NavbarBottom />
     </Providers>

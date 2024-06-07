@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/sheet";
 import { useAccount } from "@/context/AccountContext";
 import RowTransaction from "./RowTransactions";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { filterTransactionsByAccountId } from "@/lib/helper";
 
 interface IAccountDepositSheet {
   sheetListTransactionOpen: boolean;
@@ -45,14 +47,20 @@ export default function ListTransactions({
         </SheetHeader>
         {accountSelected && (
           <>
-            {transactions.length > 0 &&
-              transactions.map((transaction, i) => (
-                <RowTransaction
-                  key={`row-transaction-${i}`}
-                  transaction={transaction.attributes}
-                  accountselectedId={accountSelected.id}
-                />
-              ))}
+            {transactions.length > 0 && (
+              <ScrollArea className="w-full h-full">
+                {filterTransactionsByAccountId(
+                  transactions,
+                  accountSelected.id
+                ).map((transaction, i) => (
+                  <RowTransaction
+                    key={`row-transaction-${i}`}
+                    transaction={transaction.attributes}
+                    accountselectedId={accountSelected.id}
+                  />
+                ))}
+              </ScrollArea>
+            )}
           </>
         )}
       </SheetContent>

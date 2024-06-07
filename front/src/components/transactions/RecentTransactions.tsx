@@ -4,6 +4,7 @@ import { useAccount } from "@/context/AccountContext";
 import ListTransactions from "./ListTransactions";
 import RowTransaction from "./RowTransactions";
 import { useTransaction } from "@/context/TransactionsContext";
+import { filterTransactionsByAccountId } from "@/lib/helper";
 
 export default function RecentTransactions() {
   const { accountSelected } = useAccount();
@@ -18,14 +19,7 @@ export default function RecentTransactions() {
       {accountSelected && transactions && (
         <>
           {transactions.length > 0 &&
-            transactions
-              .filter(
-                (transaction) =>
-                  transaction.attributes?.account_creditor?.data?.id ===
-                    accountSelected.id ||
-                  transaction.attributes?.account_debtor?.data?.id ===
-                    accountSelected.id
-              )
+            filterTransactionsByAccountId(transactions, accountSelected.id)
               .slice(0, 3)
               .map((transaction, i) => (
                 <RowTransaction
