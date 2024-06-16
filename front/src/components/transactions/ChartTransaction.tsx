@@ -58,7 +58,7 @@ export default function ChartTransaction() {
           <Tooltip />
           <Bar
             name={"Fonds reçus"}
-            dataKey="account_debt"
+            dataKey="ammount_debt"
             stackId="a"
             fill="#16a34a"
           />

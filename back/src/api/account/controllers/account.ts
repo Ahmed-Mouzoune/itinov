@@ -20,23 +20,6 @@ export default factories.createCoreController('api::account.account', ({ strapi 
             return ctx.internalServerError();
         }
     },
-    async findOneUserAccount(ctx) {
-        try {
-            const { accountId } = ctx.request.params;
-            if (!accountId) return ctx.badRequest('Parameters is missing !');
-            const userId = ctx.state.user.id;
-
-            const entry = await strapi.entityService.findOne('api::account.account', accountId, {
-                populate: {
-                    users_permissions_user: true
-                }
-            });
-            if (entry && entry.users_permissions_user.id !== userId) return ctx.forbidden();
-            return this.transformResponse(entry)
-        } catch (error) {
-            return ctx.internalServerError();
-        }
-    },
     async deposit(ctx) {
         try {
             const userId = ctx.state.user.id;
@@ -61,7 +44,7 @@ export default factories.createCoreController('api::account.account', ({ strapi 
               data: {
                 type: "deposit",
                 amount: amountDeposit,
-                account_debtor: accountId
+                account_creditor: accountId
               },
               populate: {
                 account_debtor: true,
@@ -97,7 +80,7 @@ export default factories.createCoreController('api::account.account', ({ strapi 
               data: {
                 type: "withdrawal",
                 amount: amountWithdrawal,
-                account_creditor: accountId
+                account_debtor: accountId
               },
               populate: {
                 account_debtor: true,
@@ -141,8 +124,8 @@ export default factories.createCoreController('api::account.account', ({ strapi 
               data: {
                 type: "transfer",
                 amount: amountTransfer,
-                account_debtor: accountIdTo,
-                account_creditor: accountIdFrom,
+                account_debtor: accountIdFrom,
+                account_creditor: accountIdTo,
               },
               populate: {
                 account_debtor: true,
@@ -175,7 +158,6 @@ export default factories.createCoreController('api::account.account', ({ strapi 
             return ctx.internalServerError();
         }
     },
-    // TODO
     async userTransactions(ctx) {
         try {
             const { accountId } = ctx.request.params;

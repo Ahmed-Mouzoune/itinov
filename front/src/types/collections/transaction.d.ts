@@ -28,7 +28,7 @@ interface TransactionContextType {
 }
 
 interface ITransactionDataChart {
-    account_debt: number;
+    ammount_debt: number;
     ammount_credit: number;
     days: string;
 }

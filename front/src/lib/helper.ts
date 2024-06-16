@@ -31,11 +31,11 @@ export function filterTransactionsByAccountId(transactions: TStrapiTransactionAp
 export function getTransactionDataForCharts(transactions: TStrapiTransactionApiResponse[], accountselectedId: number): ITransactionDataChart[] {
     const lastDay = getLastDayOfCurrentMonth().toString();
     const initialResult: ITransactionDataChart[] = [
-        { account_debt: 0, ammount_credit: 0, days: '1-7' },
-        { account_debt: 0, ammount_credit: 0, days: '8-14' },
-        { account_debt: 0, ammount_credit: 0, days: '15-21' },
-        { account_debt: 0, ammount_credit: 0, days: '22-28' },
-        { account_debt: 0, ammount_credit: 0, days: `29-${lastDay}` },
+        { ammount_debt: 0, ammount_credit: 0, days: '1-7' },
+        { ammount_debt: 0, ammount_credit: 0, days: '8-14' },
+        { ammount_debt: 0, ammount_credit: 0, days: '15-21' },
+        { ammount_debt: 0, ammount_credit: 0, days: '22-28' },
+        { ammount_debt: 0, ammount_credit: 0, days: `29-${lastDay}` },
     ];
 
     return transactions.reduce((acc, transaction) => {
@@ -63,7 +63,7 @@ export function getTransactionDataForCharts(transactions: TStrapiTransactionApiR
         }
 
         if (transferCreditor) {
-            acc[periodIndex].account_debt += transaction.attributes.amount;
+            acc[periodIndex].ammount_debt += transaction.attributes.amount;
         }
         if (!transferCreditor) {
             acc[periodIndex].ammount_credit += transaction.attributes.amount;
